@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
@@ -7,12 +7,12 @@
     <meta name="description" content="Personal webpage of Margot Bruneaux.">
 
     <style>
-        /* Core Settings */
+        /* --- CONFIGURATION GLOBALE --- */
         :root {
-            --bg-color: #f5efe0;
+            --bg-color: #f5efe0;       /* Fond beige */
+            --header-bg: #cd2653;      /* Bandeau couleur accent */
             --text-color: #000000;
-            --secondary-text: #6d6d6d;
-            --accent-color: #cd2653;
+            --link-color: #cd2653;
             --font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -25,30 +25,75 @@
             padding: 0;
         }
 
-        /* Layout */
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Typography */
-        h1 {
-            color: var(--accent-color);
-            text-align: center;
-            font-size: 2.5rem;
+        /* --- LE BANDEAU (HEADER) --- */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             margin-bottom: 3rem;
-            font-weight: 700;
+            width: 100%;
         }
 
+        /* Conteneur pour centrer le titre dans le bandeau */
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left; /* Ou 'center' si vous préférez le nom au milieu */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white; /* Force le blanc sur le fond rouge */
+        }
+
+        /* --- MISE EN PAGE PRINCIPALE (FLEXBOX) --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+            
+            /* C'est ici que l'on met le texte et la photo côte à côte */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; 
+            gap: 40px; /* Espace entre texte et photo */
+        }
+
+        /* Colonne de gauche (Texte) */
+        .text-content {
+            flex: 1; 
+            min-width: 0;
+        }
+
+        /* Colonne de droite (Photo) */
+        .photo-container {
+            width: 300px; /* Largeur fixe pour la photo */
+            flex-shrink: 0;
+        }
+
+        /* Style de la photo */
+        .profile-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 5px solid white; /* Joli cadre blanc */
+        }
+
+        /* --- TYPOGRAPHIE & LIENS --- */
         p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
 
         a {
-            color: var(--accent-color);
+            color: var(--link-color);
             text-decoration: none;
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
@@ -56,60 +101,78 @@
             text-decoration: underline;
         }
 
-        /* Image Styling */
-        .profile-photo {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 2rem auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Footer */
+        /* --- PIED DE PAGE --- */
         footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
             border-top: 1px solid #dcd7ca;
             text-align: center;
             font-size: 0.9rem;
-            color: var(--secondary-text);
+            color: #6d6d6d;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* --- VERSION MOBILE (RESPONSIVE) --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Empile verticalement sur petit écran */
+            }
+            
+            .photo-container {
+                width: 100%;
+                max-width: 300px;
+                margin: 2rem auto 0 auto; /* Centre la photo */
+            }
+
+            .header-content {
+                text-align: center; /* Centre le nom sur mobile */
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- LE BANDEAU EN HAUT -->
+    <header>
+        <div class="header-content">
+            <h1>Margot Bruneaux</h1>
+        </div>
+    </header>
+
+    <!-- LE CONTENU PRINCIPAL -->
     <div class="container">
         
-        <header>
-            <h1>Margot Bruneaux</h1>
-        </header>
+        <!-- Colonne GAUCHE : Texte -->
+        <main class="text-content">
+            <p>I am a PhD student at the Institut Camille Jordan, Université Claude Bernard Lyon 1 under the direction of Philippe Gille and Paolo Bravi. I am also attached to the Simion Stoilow Institute of Mathematics of the Romanian Academy.</p>
 
-        <main>
-            <p>I am a PhD student at the Institut Camille Jordan, Université Claude Bernard Lyon 1 under the direction of Philippe Gille and Paolo Bravi. I am also attached to the Simion Stoilow Institute of Mathematics of the  Romanian Academy:</p>
-
-            <p> I work in algebraic geometry</p>
+            <p>I work in algebraic geometry.</p>
 
             <p>You can find a short CV <a href="cv.pdf" target="_blank">here</a>.</p>
 
-            <p> (Pre)-publications :</p>
+            <p><strong>(Pre)-publications :</strong></p>
 
-            <p> Homogeneous spaces over an abelian variety    <a href="https://arxiv.org/abs/2510.15126"> arXiv </a> </p>
+            <p>Homogeneous spaces over an abelian variety <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a></p>
             
-            <p>E-mail adress:lastname@math.univ-lyon1.fr </p>
-
-              <!-- Votre nouvelle photo -->
-            <img src="margot-photo.jpeg" alt="Photo" class="profile-photo" width="400">
+            <p>E-mail address: bruneaux@math.univ-lyon1.fr (exemple à adapter)</p>
         </main>
 
-    
+        <!-- Colonne DROITE : Photo -->
+        <aside class="photo-container">
+            <img src="margot-photo.jpeg" alt="Margot Bruneaux" class="profile-photo">
+        </aside>
 
     </div>
 
+    <!-- PIED DE PAGE (si vous voulez le remettre dans le container ou dehors, ici il est dans le flux normal) -->
+    <!-- Note: Pour que le footer prenne toute la largeur, il faudrait le sortir du container, mais ici on va le garder simple -->
+    
+    <!-- Petit fix pour le footer: je l'ai sorti du main mais laissé dans une structure logique -->
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+        <footer>
+            <p>&copy; 2026 Margot Bruneaux</p>
+        </footer>
+    </div>
+
 </body>
-
 </html>
-
-
-
