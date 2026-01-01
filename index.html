@@ -114,8 +114,28 @@
             }
 
             .photo-container {
-                display: none; 
+                /* On réaffiche le conteneur */
+                display: block; 
+                width: auto;
+                margin-bottom: 2rem;
+                /* On place la photo AVANT le texte grâce à l'ordre Flexbox */
+                order: -1; 
             }
+
+            .profile-photo {
+                /* Dimensions fixes pour faire un carré */
+                width: 200px; 
+                height: 200px; 
+                
+                /* Magie CSS pour recadrer l'image sans l'écraser */
+                object-fit: cover; 
+                /* Centre l'image (focus sur le visage généralement au centre/haut) */
+                object-position: center 20%; 
+                
+                /* Optionnel : rendre le carré rond (décommenter si voulu) */
+                /* border-radius: 50%; */
+            }
+        }
     </style>
 </head>
 
@@ -157,6 +177,7 @@
 
 </body>
 </html>
+
 
 
 
