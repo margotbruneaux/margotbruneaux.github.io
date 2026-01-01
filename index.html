@@ -118,8 +118,12 @@
                 flex-direction: column; /* Empile verticalement sur petit écran */
             }
 
-            .photo-container {
-                display: none; 
+             .photo-container {
+                display: block; /* On affiche la photo */
+                width: 100%;
+                max-width: 150px; /* TAILLE RÉDUITE SUR MOBILE (150px) */
+                margin: 0 auto 2rem auto; /* Centré horizontalement + Marge en bas */
+                order: -1; /* Place la photo AVANT le texte visuellement */
             }
             
             .header-content {
@@ -147,7 +151,7 @@
             
             <p>I work in algebraic geometry.</p>
 
-            <p>You can find a short CV <a href="cv.pdf" target="_blank">here</a> (last update January 2026).</p>
+            <p>You can find a short CV <a href="cv.pdf" target="_blank">here</a>.</p>
 
             <p><strong>(Pre)-publications :</strong></p>
 
@@ -175,6 +179,7 @@
 
 </body>
 </html>
+
 
 
 
