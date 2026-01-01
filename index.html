@@ -72,15 +72,21 @@
             flex-shrink: 0;
         }
 
-        /* Style photo pour l'ordinateur */
         .profile-photo {
             width: 100%;
             height: auto;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 5px solid white; 
-            /* Pas de zoom sur l'ordi */
             transform: none; 
+        }
+
+        /* Lien spécifique pour le mobile (caché par défaut sur ordi) */
+        .mobile-photo-link {
+            display: none;
+            margin-top: 2rem;
+            text-align: center;
+            font-style: italic;
         }
 
         /* --- TYPOGRAPHIE & LIENS --- */
@@ -113,8 +119,14 @@
                 text-align: center; 
             }
 
-             .photo-container {
+            /* On cache la photo physique */
+            .photo-container {
                 display: none; 
+            }
+
+            /* On affiche le lien texte vers la photo */
+            .mobile-photo-link {
+                display: block;
             }
         }
     </style>
@@ -142,6 +154,11 @@
             <p>Homogeneous spaces over an abelian variety <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a></p>
             
             <p>E-mail address: bruneaux@math.univ-lyon1.fr </p>
+
+            <!-- Ce lien ne s'affichera que sur mobile -->
+            <p class="mobile-photo-link">
+                <a href="margot-photo.jpeg" target="_blank">Picture</a>
+            </p>
         </main>
 
         <aside class="photo-container">
@@ -158,8 +175,3 @@
 
 </body>
 </html>
-
-
-
-
-
