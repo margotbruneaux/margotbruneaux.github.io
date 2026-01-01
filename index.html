@@ -9,10 +9,10 @@
     <style>
         /* --- CONFIGURATION GLOBALE --- */
         :root {
-            --bg-color: #ffffff;       /* Fond beige */
-            --header-bg: #9DB1CC;      /* Bandeau couleur accent */
+            --bg-color: #ffffff;       /* Fond blanc */
+            --header-bg: #9DB1CC;      /* Bandeau Bleu/Gris */
             --text-color: #000000;
-            --link-color: #9DB1CC;
+            --link-color: #9DB1CC;     /* Liens assortis au bandeau */
             --font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -35,61 +35,54 @@
             width: 100%;
         }
 
-        /* Conteneur pour centrer le titre dans le bandeau */
         .header-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
-            text-align: left; /* Ou 'center' si vous préférez le nom au milieu */
+            text-align: left; 
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             font-weight: 700;
-            color: white; /* Force le blanc sur le fond rouge */
+            color: white; 
         }
 
-        /* --- MISE EN PAGE PRINCIPALE (FLEXBOX) --- */
+        /* --- MISE EN PAGE PRINCIPALE --- */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px 60px 20px;
-            
-            /* C'est ici que l'on met le texte et la photo côte à côte */
             display: flex;
             justify-content: space-between;
             align-items: flex-start; 
-            gap: 40px; /* Espace entre texte et photo */
+            gap: 40px; 
         }
 
         /* Colonne de gauche (Texte) */
          .text-content {
             flex: 1; 
             min-width: 0;
-            text-align: justify; /* C'est cette ligne qui aligne la fin des lignes proprement */
+            text-align: justify; 
         }
 
-        /* Colonne de droite (Photo) */
+        /* Colonne de droite (Photo ORDI) */
         .photo-container {
-            width: 300px; /* Largeur fixe pour la photo */
+            width: 300px; 
             flex-shrink: 0;
         }
 
-        /* Style de la photo */
         .profile-photo {
             width: 100%;
             height: auto;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 5px solid white; /* Joli cadre blanc */
+            border: 5px solid white; 
         }
 
         /* --- TYPOGRAPHIE & LIENS --- */
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
 
         a {
             color: var(--link-color);
@@ -97,10 +90,7 @@
             font-weight: 600;
             transition: color 0.2s ease;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a:hover { text-decoration: underline; }
 
         /* --- PIED DE PAGE --- */
         footer {
@@ -115,19 +105,31 @@
         /* --- VERSION MOBILE (RESPONSIVE) --- */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Empile verticalement sur petit écran */
+                flex-direction: column; 
             }
 
              .photo-container {
-                display: block; /* On affiche la photo */
+                display: block; 
+                width: 150px;   /* Largeur forcée carré */
+                height: 150px;  /* Hauteur forcée carré */
+                margin: 0 auto 2rem auto; 
+                order: -1;      /* Place la photo AVANT le texte */
+            }
+            
+            /* C'EST ICI LE REGLAGE DU ROGNAGE MOBILE */
+            .profile-photo {
                 width: 100%;
-                max-width: 150px; /* TAILLE RÉDUITE SUR MOBILE (150px) */
-                margin: 0 auto 2rem auto; /* Centré horizontalement + Marge en bas */
-                order: -1; /* Place la photo AVANT le texte visuellement */
+                height: 100%;
+                object-fit: cover;  /* Coupe ce qui dépasse */
+                
+                /* "center 15%" = Centré horizontalement, et on commence à 15% du haut */
+                object-position: center 15%; 
+                
+                border-radius: 50%; /* Image ronde sur mobile */
             }
             
             .header-content {
-                text-align: center; /* Centre le nom sur mobile */
+                text-align: center; 
             }
         }
     </style>
@@ -135,17 +137,14 @@
 
 <body>
 
-    <!-- LE BANDEAU EN HAUT -->
     <header>
         <div class="header-content">
             <h1>Margot Bruneaux</h1>
         </div>
     </header>
 
-    <!-- LE CONTENU PRINCIPAL -->
     <div class="container">
         
-        <!-- Colonne GAUCHE : Texte -->
         <main class="text-content">
             <p>Since September 2023, I have been a PhD student at the Institut Camille Jordan, Université Claude Bernard Lyon 1, under the supervision of Philippe Gille and Paolo Bravi. I am also affiliated with the Simion Stoilow Institute of Mathematics of the Romanian Academy.<br>I graduated from the École Normale Supérieure in 2023.</p>
             
@@ -157,20 +156,15 @@
 
             <p>Homogeneous spaces over an abelian variety <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a></p>
             
-            <p>E-mail address: [lastname]@math.univ-lyon1.fr </p>
+            <p>E-mail address: bruneaux@math.univ-lyon1.fr </p>
         </main>
 
-        <!-- Colonne DROITE : Photo -->
         <aside class="photo-container">
             <img src="margot-photo.jpeg" alt="Margot Bruneaux" class="profile-photo">
         </aside>
 
     </div>
 
-    <!-- PIED DE PAGE (si vous voulez le remettre dans le container ou dehors, ici il est dans le flux normal) -->
-    <!-- Note: Pour que le footer prenne toute la largeur, il faudrait le sortir du container, mais ici on va le garder simple -->
-    
-    <!-- Petit fix pour le footer: je l'ai sorti du main mais laissé dans une structure logique -->
     <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
         <footer>
             <p>&copy; 2026 Margot Bruneaux</p>
@@ -179,14 +173,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
