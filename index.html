@@ -113,27 +113,36 @@
                 text-align: center; 
             }
 
-             /* CONTENEUR DU CERCLE */
+            /* CONTENEUR DU CERCLE */
              .photo-container {
                 display: block; 
-                width: 150px;   /* Retour à la taille normale (150px) */
+                width: 150px;   
                 height: 150px;
                 margin: 0 auto 2rem auto; 
                 order: -1;
                 
-                /* Important pour le cercle propre */
                 border-radius: 50%; 
-                overflow: hidden; /* Empêche l'image zoomée de sortir du cercle */
+                overflow: hidden; 
                 border: 5px solid white; 
                 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
             
-            /* L'IMAGE À L'INTÉRIEUR DU CERCLE */
+            /* L'IMAGE À L'INTÉRIEUR */
             .profile-photo {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;  
+                object-position: center 15%; 
+
+                /* C'EST ICI LE REGLAGE DU ZOOM */
+                /* 1 = Taille normale (image remplie le cercle) */
+                /* 0.9 = Dézoomé légèrement (image plus petite) */
+                transform: scale(0.9); 
                 
+                border-radius: 0; 
+                border: none;
+                box-shadow: none;
+            }
                 /* Position : on se focalise sur le haut (le visage) */
                 object-position: center 15%; 
 
@@ -189,3 +198,4 @@
 
 </body>
 </html>
+
