@@ -9,10 +9,10 @@
     <style>
         /* --- CONFIGURATION GLOBALE --- */
         :root {
-            --bg-color: #ffffff;       /* Fond blanc */
-            --header-bg: #9DB1CC;      /* Bandeau Bleu/Gris */
+            --bg-color: #ffffff;
+            --header-bg: #9DB1CC;
             --text-color: #000000;
-            --link-color: #9DB1CC;     /* Liens assortis au bandeau */
+            --link-color: #9DB1CC;
             --font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -60,8 +60,7 @@
             gap: 40px; 
         }
 
-        /* Colonne de gauche (Texte) */
-         .text-content {
+        .text-content {
             flex: 1; 
             min-width: 0;
             text-align: justify; 
@@ -73,12 +72,15 @@
             flex-shrink: 0;
         }
 
+        /* Style photo pour l'ordinateur */
         .profile-photo {
             width: 100%;
             height: auto;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 5px solid white; 
+            /* Pas de zoom sur l'ordi */
+            transform: none; 
         }
 
         /* --- TYPOGRAPHIE & LIENS --- */
@@ -92,7 +94,6 @@
         }
         a:hover { text-decoration: underline; }
 
-        /* --- PIED DE PAGE --- */
         footer {
             border-top: 1px solid #dcd7ca;
             text-align: center;
@@ -108,28 +109,43 @@
                 flex-direction: column; 
             }
 
+            .header-content {
+                text-align: center; 
+            }
+
+             /* CONTENEUR DU CERCLE */
              .photo-container {
                 display: block; 
-                width: 200px;   /* Largeur forcée carré */
-                height: 200px;  /* Hauteur forcée carré */
+                width: 150px;   /* Retour à la taille normale (150px) */
+                height: 150px;
                 margin: 0 auto 2rem auto; 
-                order: -1;      /* Place la photo AVANT le texte */
+                order: -1;
+                
+                /* Important pour le cercle propre */
+                border-radius: 50%; 
+                overflow: hidden; /* Empêche l'image zoomée de sortir du cercle */
+                border: 5px solid white; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
             
-            /* C'EST ICI LE REGLAGE DU ROGNAGE MOBILE */
+            /* L'IMAGE À L'INTÉRIEUR DU CERCLE */
             .profile-photo {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;  /* Coupe ce qui dépasse */
+                object-fit: cover;  
                 
-                /* "center 15%" = Centré horizontalement, et on commence à 15% du haut */
+                /* Position : on se focalise sur le haut (le visage) */
                 object-position: center 15%; 
+
+                /* ZOOM : C'est ici qu'on agrandit la photo DANS le cercle */
+                /* 1.35 = 135% de la taille originale. */
+                /* Augmentez ce chiffre (ex: 1.5) pour zoomer encore plus */
+                transform: scale(1.35); 
                 
-                border-radius: 50%; /* Image ronde sur mobile */
-            }
-            
-            .header-content {
-                text-align: center; 
+                /* On retire les bordures de l'image elle-même car c'est le conteneur qui les gère maintenant */
+                border-radius: 0; 
+                border: none;
+                box-shadow: none;
             }
         }
     </style>
@@ -173,4 +189,3 @@
 
 </body>
 </html>
-
