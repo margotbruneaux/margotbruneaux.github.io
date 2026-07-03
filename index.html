@@ -66,6 +66,10 @@
             text-align: justify; 
         }
 
+        .preprints p:last-child {
+        margin-bottom: 0;
+        }
+
         /* Colonne de droite (Photo ORDI) */
         .photo-container {
             width: 300px; 
@@ -129,6 +133,7 @@
                 display: block;
             }
         }
+        
     </style>
 </head>
 
@@ -152,12 +157,17 @@
             <!-- L'email a été déplacé ici -->
             <p>E-mail : [lastname]@math.univ-lyon1.fr </p>
 
-            <p><strong>Preprints:</strong></p>
+           <p><strong>Preprints:</strong></p>
+
+            <div class="preprints">
 
             <p>Homogeneous spaces over an abelian variety <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a></p>
+
             <p>Comb smoothing and local triviality of homogeneous spaces over a relative curve
             <a href="https://arxiv.org/abs/2607.02014" target="_blank">[arXiv]</a>
             <em>(with F. Scavia)</em></p>
+
+            </div>
             
             
             <!-- Ce lien ne s'affichera que sur mobile -->
