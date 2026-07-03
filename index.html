@@ -7,7 +7,6 @@
     <meta name="description" content="Personal webpage of Margot Bruneaux.">
 
     <style>
-        /* --- CONFIGURATION GLOBALE --- */
         :root {
             --bg-color: #ffffff;
             --header-bg: #9DB1CC;
@@ -25,7 +24,7 @@
             padding: 0;
         }
 
-        /* --- LE BANDEAU (HEADER) --- */
+        /* HEADER */
         header {
             background-color: var(--header-bg);
             color: white;
@@ -39,44 +38,49 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
-            text-align: left; 
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             font-weight: 700;
-            color: white; 
+            color: white;
         }
 
-        /* --- MISE EN PAGE PRINCIPALE --- */
+        /* LAYOUT */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px 60px 20px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; 
-            gap: 40px; 
+            align-items: flex-start;
+            gap: 40px;
         }
 
         .text-content {
-            flex: 1; 
-            min-width: 0;
-            text-align: justify; 
+            flex: 1;
+            text-align: justify;
         }
 
+        /* TITRE SECTION */
+        .section-title {
+            margin: 0.5rem 0 0.3rem 0;
+            font-weight: bold;
+        }
+
+        /* PREPRINTS */
         .preprints p {
-        margin: 0.2rem 0;
+            margin: 0.2rem 0;
         }
 
         .preprints p + p {
-        margin-top: 0.8rem;
+            margin-top: 0.8rem;
         }
 
-        /* Colonne de droite (Photo ORDI) */
+        /* PHOTO */
         .photo-container {
-            width: 300px; 
+            width: 300px;
             flex-shrink: 0;
         }
 
@@ -85,28 +89,24 @@
             height: auto;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 5px solid white; 
-            transform: none; 
+            border: 5px solid white;
         }
 
-        /* Lien spécifique pour le mobile (caché par défaut sur ordi) */
-        .mobile-photo-link {
-            display: none;
-            margin-top: 2rem;
-            text-align: center;
-            font-style: italic;
+        /* TYPOGRAPHY */
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
         }
-
-        /* --- TYPOGRAPHIE & LIENS --- */
-        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
 
         a {
             color: var(--link-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease;
         }
-        a:hover { text-decoration: underline; }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         footer {
             border-top: 1px solid #dcd7ca;
@@ -117,85 +117,74 @@
             margin-top: 2rem;
         }
 
-        /* --- VERSION MOBILE (RESPONSIVE) --- */
+        /* MOBILE */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; 
+                flex-direction: column;
             }
 
-            .header-content {
-                text-align: center; 
-            }
-
-            /* On cache la photo physique */
             .photo-container {
-                display: none; 
-            }
-
-            /* On affiche le lien texte vers la photo */
-            .mobile-photo-link {
-                display: block;
+                display: none;
             }
         }
-        
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="header-content">
-            <h1>Margot Bruneaux</h1>
-        </div>
-    </header>
+<header>
+    <div class="header-content">
+        <h1>Margot Bruneaux</h1>
+    </div>
+</header>
 
-    <div class="container">
-        
-        <main class="text-content">
-            <p>Since September 2023, I have been a PhD student at the Institut Camille Jordan, Université Claude Bernard Lyon 1, under the supervision of Philippe Gille and Paolo Bravi. I am also affiliated with the Simion Stoilow Institute of Mathematics of the Romanian Academy.<br>I graduated from the École Normale Supérieure of Paris in 2023.</p>
-            
-            <p>I work in algebraic geometry. My research interests include algebraic groups, Galois cohomology, algebraic cycles, motives, and algebraic stacks.</p>
+<div class="container">
 
-            <p>You can find a short CV <a href="cv.pdf" target="_blank">here</a>.</p>
+    <main class="text-content">
 
-            <!-- L'email a été déplacé ici -->
-            <p>E-mail : [lastname]@math.univ-lyon1.fr </p>
+        <p>
+            Since September 2023, I have been a PhD student at the Institut Camille Jordan, Université Claude Bernard Lyon 1, under the supervision of Philippe Gille and Paolo Bravi. I am also affiliated with the Simion Stoilow Institute of Mathematics of the Romanian Academy.<br>
+            I graduated from the École Normale Supérieure of Paris in 2023.
+        </p>
 
-           <p><strong>Preprints:</strong></p>
+        <p>
+            I work in algebraic geometry. My research interests include algebraic groups, Galois cohomology, algebraic cycles, motives, and algebraic stacks.
+        </p>
 
-            <div class="preprints">
+        <p>
+            You can find a short CV <a href="cv.pdf" target="_blank">here</a>.
+        </p>
 
-            <p>Homogeneous spaces over an abelian variety <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a></p>
+        <p>E-mail : [lastname]@math.univ-lyon1.fr</p>
 
-            <p>Comb smoothing and local triviality of homogeneous spaces over a relative curve
-            <a href="https://arxiv.org/abs/2607.02014" target="_blank">[arXiv]</a>
-            <em>(with F. Scavia)</em></p>
+        <p class="section-title">Preprints:</p>
 
-            </div>
-            
-            
-            <!-- Ce lien ne s'affichera que sur mobile -->
-            <p class="mobile-photo-link">
-                <a href="margot-photo.jpeg" target="_blank">Picture</a>
+        <div class="preprints">
+
+            <p>
+                Homogeneous spaces over an abelian variety
+                <a href="https://arxiv.org/abs/2510.15126" target="_blank">[arXiv]</a>
             </p>
-        </main>
 
-        <aside class="photo-container">
-            <img src="margot-photo.jpeg" alt="Margot Bruneaux" class="profile-photo">
-        </aside>
+            <p>
+                Comb smoothing and local triviality of homogeneous spaces over a relative curve
+                <a href="https://arxiv.org/abs/2607.02014" target="_blank">[arXiv]</a>
+                <em>(with F. Scavia)</em>
+            </p>
 
-    </div>
+        </div>
 
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-        <footer>
-            <p>&copy; 2026 Margot Bruneaux</p>
-        </footer>
-    </div>
+    </main>
+
+    <aside class="photo-container">
+        <img src="margot-photo.jpeg" alt="Margot Bruneaux" class="profile-photo">
+    </aside>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Margot Bruneaux</p>
+</footer>
 
 </body>
 </html>
-
-
-
-
-
