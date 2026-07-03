@@ -62,8 +62,9 @@
             flex: 1;
             text-align: justify;
         }
+
         .text-content p {
-        margin-bottom: 1rem;
+            margin-bottom: 1rem;
         }
 
         /* TITRE SECTION */
@@ -74,7 +75,12 @@
 
         /* PREPRINTS */
         .preprints p {
-        margin: 0.1rem 0 !important;
+            margin: 0.1rem 0;
+        }
+
+        /* espace plus grand entre les deux preprints */
+        .preprints p:first-child {
+            margin-bottom: 0.9rem;
         }
 
         /* PHOTO */
